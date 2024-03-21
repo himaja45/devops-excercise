@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2024-03-20T22:19:42Z"
+  labels:
+    run: nginx
+  name: pod-svc
+  namespace: devops-excercise
+  resourceVersion: "661"
+  uid: 7f594409-622a-4601-840a-e265802f2124
+spec:
+  clusterIP: 10.100.200.154
+  clusterIPs:
+  - 10.100.200.154
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 32700
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: nginx
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
